@@ -32,10 +32,14 @@ class Stack {
   }
 
   pop() {
-    if (this.length > 0) {
-      this.top = this.top.next;
-      this.length--;
+    if (!this.length) {
+      return null;
     }
+    if (this.top === this.bottom) {
+      this.bottom = null;
+    }
+    this.top = this.top.next;
+    this.length--;
     return this;
   }
 }
@@ -45,6 +49,8 @@ myStack.push(10);
 myStack.push(20);
 myStack.push(30);
 myStack.push(40);
+console.log(myStack.pop());
+console.log(myStack.pop());
 console.log(myStack.pop());
 console.log(myStack.pop());
 console.log(myStack.peak());
